@@ -1,10 +1,22 @@
-#!/bin/sh
+#!/usr/bin/env python3
 
-# The name of the collection
-COLLECTION=/input/collections/$1
+import argparse
+import os
+import subprocess
 
-# do the indexing job using ATIRE
-JASSv2/atire/bin/index -N1000 -sa -QBM25 -rrtrec $COLLECTION/disk4/fr94/01 $COLLECTION/disk4/fr94/02 $COLLECTION/disk4/fr94/03 $COLLECTION/disk4/fr94/04 $COLLECTION/disk4/fr94/05 $COLLECTION/disk4/fr94/06 $COLLECTION/disk4/fr94/07 $COLLECTION/disk4/fr94/08 $COLLECTION/disk4/fr94/09 $COLLECTION/disk4/fr94/10 $COLLECTION/disk4/fr94/11 $COLLECTION/disk4/fr94/12 $COLLECTION/disk4/ft/ft911 $COLLECTION/disk4/ft/ft921 $COLLECTION/disk4/ft/ft922 $COLLECTION/disk4/ft/ft923 $COLLECTION/disk4/ft/ft924 $COLLECTION/disk4/ft/ft931 $COLLECTION/disk4/ft/ft932 $COLLECTION/disk4/ft/ft933 $COLLECTION/disk4/ft/ft934 $COLLECTION/disk4/ft/ft941 $COLLECTION/disk4/ft/ft942 $COLLECTION/disk4/ft/ft943 $COLLECTION/disk4/ft/ft944 $COLLECTION/disk5/fbis/fb* $COLLECTION/disk5/latimes/la*
+print("Indexing...")
 
-# now convert the index into a JASS index
-JASSv2/JASSv1/atire_to_jass_index index.aspt -G 
+# The number of CPU cores available
+cores = os.cpu_count()
+
+parser = argparse.ArgumentParser()
+parser.add_argument("--collections", nargs="+", type=str, required=True, help="the collection names")
+
+args = parser.parse_args()
+
+# Iterate over the [name]=[path] pairs
+for name in args.collections:
+	if name.lower() == "robust04":
+		subprocess.run("/index_robust04 robust04", shell=True)
+	else:
+		print("Unknown collection: " + name)
