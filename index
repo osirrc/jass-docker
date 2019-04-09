@@ -17,6 +17,6 @@ args = parser.parse_args()
 # Iterate over the [name]=[path] pairs
 for name in args.collections:
 	if name.lower() == "robust04":
-		subprocess.run("/index_robust04 robust04", shell=True)
+		subprocess.run("/index_robust04 " + name, shell=True)
 	else:
 		print("Unknown collection: " + name)
