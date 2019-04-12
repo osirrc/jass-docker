@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# the first parameter is the name of the topic file.
+# the second paramter if the top-k value
+
 echo "Searching..."
 
 # The name of the topic file
@@ -9,13 +12,13 @@ TOPIC=/input/topics/$1
 JASSv2/atire/evaluation/trec2query $TOPIC t > queries.txt
 
 # call JASS to do the search to completion
-JASSv2/JASSv1/jass queries.txt 100 1000000000 -d
+JASSv2/JASSv1/jass queries.txt $2 1000000000 -d
 
 # now copy the output to the output directory
 cp ranking.txt /output/JASS_100_precent.txt
 
 # call JASS to do the search to 10 percent
-JASSv2/JASSv1/jass queries.txt 100 52815 -d
+JASSv2/JASSv1/jass queries.txt $2 52815 -d
 
 # now copy the output to the output directory
 cp ranking.txt /output/JASS_10_percent.txt
