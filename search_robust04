@@ -11,12 +11,6 @@ TOPIC=$1
 # Convert the topics from TREC XML format to one query per line for JASSv2
 JASSv2/atire/evaluation/trec2query $TOPIC t > queries.txt
 
-# call JASS to do the search to completion
-JASSv2/JASSv1/jass queries.txt $2 1000000000 -d
-
-# now copy the output to the output directory
-cp ranking.txt /output/JASS_r4_100_precent.txt
-
 # call JASS to do the search to 10 percent
 JASSv2/JASSv1/jass queries.txt $2 52815 -d
 
