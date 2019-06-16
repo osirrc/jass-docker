@@ -58,8 +58,8 @@ The following numbers should be able to be re-produced using the scripts provide
 
 |Metric | Score |
 |----|----|
-| MAP |  soon |
-| P@30 | soon |
+| MAP |  0.1984 |
+| P@30 | 0.2991 |
 
 ### core17
 [TREC 2017 Common Core Track Topics](https://trec.nist.gov/data/core/core_nist.txt).
@@ -67,8 +67,9 @@ The following numbers should be able to be re-produced using the scripts provide
 
 |Metric | Score |
 |----|----|
-| MAP | soon |
-| P@30 | soon |
+| MAP | 0.1415 |
+| P@30 | 0.4080 |
+
 
 ## Implementation
 
