@@ -35,7 +35,7 @@ python3 run.py prepare \
 For example:
 
 ```
-python3 run.py prepare --repo jass/osirrc2019 \
+python3 run.py prepare --repo jass/osirrc2019 --tag v0.1.0 \
  --collections robust04=/Users/andrew/programming/JASSv2/docker/osirrc2019/robust04=trectext
 ```
 
@@ -44,6 +44,7 @@ The following `jig` command can be used to perform a retrieval run on the collec
 ```
 python3 run.py search \
   --repo osirrc2019/atire \
+  --tag v0.1.0 \
   --output out/atire \
   --qrels qrels/qrels.robust04.txt \
   --topic topics/topics.robust04.txt \
@@ -54,7 +55,7 @@ python3 run.py search \
 For example:
 
 ```
-python3 run.py search --repo jass/osirrc2019 --collection robust04 \
+python3 run.py search --repo jass/osirrc2019 --tag v0.1.0 --collection robust04 \
  --topic topics.robust04.301-450.601-700.txt --top_k 100 \
  --output /Users/andrew/programming/osirrc2019/jass-docker/output --qrels qrels/qrels.robust2004.txt
 ```
@@ -117,4 +118,4 @@ The retrieval run is performed and output is placed in `/output` for the `jig` t
 
 ## Reviews
 
-+ Documentation not yet reviewed
++ Documentation reviewed at commit [`94d15d2`](https://github.com/osirrc/jass-docker/commit/0a65222f9da26c2779429afe9fdebc17a94d15d2) (2019-06-16) by [r-clancy](https://github.com/r-clancy/).
