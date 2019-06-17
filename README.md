@@ -110,10 +110,10 @@ The retrieval run is performed and output is placed in `/output` for the `jig` t
 
 ## References
 
-+ S. E. Robertson, S. Walker, M. Hancock-Beaulieu, M. Gatford, and A. Payne. (1995) Okapi at TREC-4. _TREC_
-+ A. Trotman, X.-F Jia, M. Crane (2012), Towards an Efficient and Effective Search Engine, Proceedings of the SIGIR 2012 Workshop on Open Source Information Retrieval, pp. 40-47
-+ Y. Lv, CX. Zhai (2011) Lower-Bounding Term Frequency Normalization, Proceedings of CIKM'11, pp. 7-16
-+ J. Lin, A. Trotman (2015), Anytime Ranking for Impact-Ordered Indexes, Proceedings of the 2015 International Conference on The Theory of Information Retrieval (ICTIR 2015), pp. 301-304
++ S. E. Robertson, S. Walker, M. Hancock-Beaulieu, M. Gatford, and A. Payne. (1995) Okapi at TREC-4. _TREC_.
++ A. Trotman, X.-F Jia, M. Crane (2012), Towards an Efficient and Effective Search Engine. _Proceedings of the SIGIR 2012 Workshop on Open Source Information Retrieval_, pp. 40-47.
++ Y. Lv, CX. Zhai (2011) Lower-Bounding Term Frequency Normalization. _CIKM 2011_, pp. 7-16.
++ J. Lin, A. Trotman (2015), Anytime Ranking for Impact-Ordered Indexes. _ICTIR 2015_, pp. 301-304.
 
 ## Reviews
 
