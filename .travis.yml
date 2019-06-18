@@ -1,0 +1,14 @@
+language: minimal
+services:
+- docker
+script:
+- docker build -t "$REPO":${TRAVIS_TAG:-latest} .
+after_success:
+- echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+- if [[ ( "$TRAVIS_BRANCH" == "master" ) || ( -n "$TRAVIS_TAG" ) ]]; then docker push
+  "$REPO":${TRAVIS_TAG:-latest}; fi
+env:
+  global:
+  - REPO=osirrc2019/jass
+  - secure: BqAQyeo9TMBCxXnxDjH/keZLZgK+PyJBWbdxGP+nc1ru8dnSSoimBceSRcH3o7BN0QZEde9ldbTBvI90qBjpWl60TxnlpgVvD4aGEZEx1iX7MK+7MhEf4CAOwjwPoI6+HDkvvkyowkq2GZ+S/3biWizoPLWWwUNH1omyAjKbTfUW650ctWSsr1+Pzv0/q1oJ4j1XUJCiKlci8e/VtpFHuLJNYyKQXxd3Qmk/MMObwHNeGuYKXPS2Qw4U1fefvT0kwlFU0t9aTPfVhHHSp87EjnVPZ8XsPJfy6+UbpDYeRXgLSWcBwFhAdA3f99ZeDCEWT3YGpZLXg5ALu1o1twzYpZC+MvMkph4ZDd7XC2Es2pQXhAOqKD5VVp0S4bLcAJ/g6ZJIpQl54pX4CiMA4ck0Ty5uZXD+jH5/3XR68S1rQVjHiNYOQdQJ//74AdcFVwAzsDC2a2X3lc2nlzx58Lm9om6T0h+hwbCo/nCcv/KsFpYhQcHM3f9YiqjWJU7vvtoMy05Voff1lPXRW/59lQS0s62iQRh5Yc071horLPDihZ+RjuTmuuizvKKZ9IZg+bdM/VdSDW5xDYIH+8yEDCWpn02Vo3uVH9TqxTgJelsBJONIE64xScJjLcapb5djodcJceXh0UnhrqcFJNaSjOZnxSrCACEunlO03szEhhotbW0=
+  - secure: odihHC4ymwgNBUyT8pdEbogzwedXvNCwHaM3H5Jcx2n6gwsh74hecEZxNtsOqNCALGpKu7lT2ik9+rS41+Iu2Kx+Clpw3QIWB283UwqqPGlwpDGERXJdRiZeBfNQbyqgFStKXjCPHJS1+d0emagfI5TxeII8v2j0WkAlXkvEGcx+Lqmat8p5jMiQiQ/aOjA+rm3lbVIrigKURy08NKGLozzTCZk036upZ3CKK+Xbi/KBvhqik7U2RT/X6CrdehwuwqRAOwtIig6RjOAh9wuRUwSFfKq+jgfonhL4B8Ckrl6MYRSO28+/Xk0VmlpreRxzmU2u63SzTRK/AkakI/y5BWppE05bCOAftcwUmdjxGc2MKq/EzJCmJZfLgl8X8vprjzYPv/xY/voYlkNEMkfvPzfHvfDXZCKiE3T0NJUCLSJb+uz5pYKstpba2uMX0vhLJAqTLxLA7JI+C5x6DPVdmt2kjYD+OcGG4SVocZNOXRkXgezudChrB3YmCxTkBtl44ZB+E2np0g0WZ5FS1/VByDvI5iV3CZeELyEyWdETKKQlaCofxLJsnOW+vtPLhBXy1sWVRq/IJd7tzWxA13mv6E2KIiFBiqlIMzSznKPLuxWevlrRkLLE5EUYYD2DklqVkvyMgNm3fayVtrn2cUrc3yKp+xiNlf65SHneJsf1n1E=
